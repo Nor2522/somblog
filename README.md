@@ -116,3 +116,9 @@ trade-off — no rich-text editor, no HTML input, so there's nothing to
 break and no risk of a stray tag messing up the page. If you later want
 bold text, links, or images inside the post body, the natural upgrade is
 a small Markdown renderer in `js/post.js`.
+
+---
+
+## watch this to get full info
+
+[![Muqaalka Shaqada](https://img.youtube.com/vi/THDprxwuc4I/0.jpg)](https://youtu.be/THDprxwuc4I)
