@@ -1,5 +1,9 @@
 # SomBlog
 
+[booqo somblog passwordka iyo user_name kuba  waa admin ](https://somblog.vercel.app/)
+
+
+
 A simple blog: static HTML/CSS/JS on the front end, Vercel Serverless
 Functions as the API, and MongoDB as the database. One admin account can
 create, edit, publish/unpublish, and delete posts from a dashboard;
