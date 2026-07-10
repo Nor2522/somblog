@@ -1,0 +1,23 @@
+{
+  "name": "somblog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SomBlog - a simple blog platform with a Vercel serverless API and MongoDB storage.",
+  "scripts": {
+    "setup-db": "node scripts/setup-db.js",
+    "generate-hash": "node scripts/generate-admin-hash.js",
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "jsdom": "^29.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
