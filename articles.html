@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('somblog-theme'); } catch (e) {}
+      var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maqaallada - SomBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="wordmark">Som<span>Blog</span></a>
+      <nav class="site-nav">
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div class="site-nav-links" id="site-nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="articles.html" class="nav-active">Articles</a>
+          <a href="contact-us.html">Contact Us</a>
+          <a href="admin/login.html">Admin</a>
+        </div>
+        <button class="icon-btn" data-theme-toggle type="button"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="section-heading">
+      <h2>Dhammaan Maqaallada</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="controls">
+      <div class="search-row">
+        <input type="search" id="search-input" placeholder="Raadi maqaal..." />
+        <button id="search-btn" type="button">Raadi</button>
+      </div>
+      <div class="category-pills" id="category-pills">
+        <button type="button" class="active" data-category="">Dhammaan</button>
+      </div>
+    </div>
+
+    <div class="post-grid" id="posts-container">
+      <p class="loading-state">Soo raraya maqaallada...</p>
+    </div>
+
+    <div class="load-more-row" id="load-more-row"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-brand">Som<span>Blog</span></div>
+      <div class="foot-tagline">Qoraallo iyo maqaallo cusub</div>
+      <div class="foot-copyright">&copy; 2026 SomBlog. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top"></button>
+
+  <script src="js/utils.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/articles.js"></script>
+</body>
+</html>
