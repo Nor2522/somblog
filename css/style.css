@@ -101,7 +101,7 @@ button {
 
 .wrap {
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 0 24px;
 }
 
