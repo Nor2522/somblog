@@ -5,6 +5,23 @@ Functions as the API, and MongoDB as the database. One admin account can
 create, edit, publish/unpublish, and delete posts from a dashboard;
 everyone else just reads.
 
+## UI update (v5) - hero tagline + smarter recommendations
+
+Two more targeted fixes:
+
+1. **Homepage tagline** - a line above the hero carousel, matching the
+   reference's intro text: "SomBlog — meel aad ka heli karto fikrado,
+   aqoon, iyo maqaallo isbeddel ku leh...". Edit it directly in
+   `index.html` (`.site-tagline`).
+2. **Smarter recommended posts** on the post page - same-category posts
+   are still first priority, but now if there aren't enough of them (e.g.
+   a category only has 1-2 other posts), the section fills the rest with
+   the most recent posts overall instead of showing fewer than 5. Always
+   capped at 5, never duplicates, never includes the post you're already
+   reading. As the blog grows and categories fill up, this naturally
+   shifts toward all-same-category recommendations on its own - no code
+   changes needed later.
+
 ## UI update (v4) - three targeted fixes
 
 Three specific things, nothing else touched:

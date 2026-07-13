@@ -386,6 +386,24 @@ main {
   margin: 0 auto;
 }
 
+.site-tagline {
+  text-align: center;
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.site-tagline a {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.site-tagline a:hover {
+  color: var(--accent);
+}
+
 /* ---------- hero carousel ---------- */
 
 .hero {

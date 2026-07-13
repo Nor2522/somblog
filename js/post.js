@@ -30,13 +30,35 @@
   }
 
   async function loadRelated(post) {
-    if (!post.category) return '';
+    const MAX_RELATED = 5;
+    let related = [];
 
     try {
-      const res = await fetch('/api/posts?category=' + encodeURIComponent(post.category) + '&limit=4');
-      if (!res.ok) return '';
-      const data = await res.json();
-      const related = (data.posts || []).filter((p) => p.slug !== post.slug).slice(0, 3);
+      // Priority 1: other posts in the same category.
+      if (post.category) {
+        const res = await fetch(
+          '/api/posts?category=' + encodeURIComponent(post.category) + '&limit=' + (MAX_RELATED + 1)
+        );
+        if (res.ok) {
+          const data = await res.json();
+          related = (data.posts || []).filter((p) => p.slug !== post.slug);
+        }
+      }
+
+      // Fallback: if the category didn't have enough, fill the rest with
+      // the most recent posts overall (excluding ones already picked).
+      if (related.length < MAX_RELATED) {
+        const need = MAX_RELATED - related.length;
+        const res = await fetch('/api/posts?limit=' + (need + related.length + 1));
+        if (res.ok) {
+          const data = await res.json();
+          const used = new Set([post.slug, ...related.map((p) => p.slug)]);
+          const fillers = (data.posts || []).filter((p) => !used.has(p.slug));
+          related = related.concat(fillers.slice(0, need));
+        }
+      }
+
+      related = related.slice(0, MAX_RELATED);
 
       if (!related.length) return '';
 
